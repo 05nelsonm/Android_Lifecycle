@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.EditText
@@ -18,6 +19,7 @@ class DetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.i(javaClass.simpleName, " - onCreate")
         setContentView(R.layout.activity_details)
 
         val intent = intent
@@ -31,11 +33,11 @@ class DetailsActivity : AppCompatActivity() {
             intent.putExtra("image", data?.fileUriString)
             startActivity(intent)
         }
-
     }
 
     override fun onStart() {
         super.onStart()
+        Log.i(javaClass.simpleName, " - onStart")
 
         image.setImageURI(data?.fileUri)
         //        image.setImageDrawable(getResources().getDrawable(android.R.drawable.btn_star));
@@ -45,6 +47,28 @@ class DetailsActivity : AppCompatActivity() {
         text_description.text = data?.description
         edit_description.setText(data?.description)
     }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(javaClass.simpleName, " - onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(javaClass.simpleName, " - onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(javaClass.simpleName, " - onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(javaClass.simpleName, " - onDestroy")
+    }
+
+
 
     override fun onBackPressed() {
         data?.name = edit_name.text.toString()

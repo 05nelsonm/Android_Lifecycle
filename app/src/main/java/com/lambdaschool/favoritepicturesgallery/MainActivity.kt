@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.i(javaClass.simpleName, "onCreate")
         setContentView(R.layout.activity_main)
         val context = this
 
@@ -85,5 +86,30 @@ class MainActivity : AppCompatActivity() {
 
         internal const val REQUEST_IMAGE_GET = 1
         internal const val EDIT_IMAGE_REQUEST = 2
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i(javaClass.simpleName, "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(javaClass.simpleName, "onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(javaClass.simpleName, "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(javaClass.simpleName, "onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(javaClass.simpleName, "onDestroy")
     }
 }
